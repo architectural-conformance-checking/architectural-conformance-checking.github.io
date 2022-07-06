@@ -90,9 +90,102 @@
                 data-animate-effect="fadeInLeft"
               >
                 <div class="about-desc">
-                  <span class="heading-meta">Welcome</span>
-                  <h3>Em construção</h3>
-                  <p>.....</p>
+                  <span class="heading-meta"
+                    >Checagem de Conformidade Arquitetural</span
+                  >
+                  <h3>Projetando Arquitetura de Software</h3>
+                  <p>
+                    Descrever o termo arquitetura de software realmente é uma
+                    tarefa difícil. Podemos encontrar várias definições que
+                    falam de componentes arquiteturais, relacionamentos,
+                    definições organizacionais, distribuição de sistemas e
+                    várias outras coisas que falam de como organizar o sistema
+                    para manter um alto nível de manutenibilidade.
+                  </p>
+
+                  <p>
+                    No início do desenvolvimento de um sistema, em geral, há uma
+                    etapa de especificação da arquitetura a fim de estabelecer
+                    os principais componentes, as suas interações e como eles
+                    irão funcionar em conjunto para atender os requisitos e
+                    respeitar certas restrições.
+                  </p>
+
+                  <p>
+                    Esses componentes que compoẽm a arquitetura podem ser
+                    camadas internas que foram projetadas com o objetivo de
+                    organizar o código e manter a manutenibilidade ao longo do
+                    tempo. Por exemplo, imagine um sistema web para agendamento
+                    de consultas médicas e que, internamente, foi organizado
+                    utilizando camadas. Uma camada de apresentação (Controllers)
+                    responsável por controlar o fluxo de requisições, uma camada
+                    de serviço (Services) responsável por executar a lógica de
+                    negócio e uma camada chamada Repositories responsável por
+                    fazer acesso a dados. As camadas desse sistema podem ser
+                    visualizadas na figura abaixo.
+                  </p>
+
+                  <img src="./images/arch.ties.png" class="center" />
+
+                  <p>
+                    Perceba que até aqui, apenas camadas e suas
+                    responsabilidades foram projetadas. O próximo passo é
+                    projetar as interações entre essas camadas. No caso do
+                    sistema de agendamento de consultas, as camadas superiores
+                    fazem chamadas para as camadas inferiores. Isso é, a camada
+                    de Controllers faz chamadas para a camada de Services e essa
+                    faz chamadas para a camadas de Repositories. Note que essas
+                    dependências são representadas pelas setas entre as camadas
+                    na imagem a seguir.
+                  </p>
+
+                  <img src="./images/arch.dependencies.png" class="center" />
+
+                  <p>
+                    Como dito anteriormente, projetar arquitetura diz a respeito
+                    de estabelecer componentes arquiteturais e como eles
+                    interagem a fim de atender requisitos e respeitar
+                    restrições. Essas restrições são, por exemplo, dizer que a
+                    camadas de controllers NÃO pode fazer chamadas diretas para
+                    a camadas de Repositories, bem como a camadas de Services
+                    não pode fazer chamadas para a camadas de Controllers. Veja
+                    como isso pode acontecer na Imagem abaixo.
+                  </p>
+
+                  <img src="./images/arch.request.png" class="center" />
+
+                  <p>
+                    Caso essas chamadas aconteçam, (as chamadas que não deveriam
+                    acontecer) elas se caracterizam como Desvios Arquiteturais
+                    uma vez que a implementação se desvia da arquitetura que foi
+                    planejada inicialmente.
+                  </p>
+
+                  <h3>Como Identificar Desvio Arquiteturais</h3>
+
+                  <p>
+                    Esses desvios arquiteturais acabam degradando o sistema com
+                    o passar do tempo. Dessa forma, precisamos de alguma
+                    abordagem que consiga comparar a arquitetura planejada com a
+                    implementação e revelar esses desvios arquitetônicos.
+                  </p>
+
+                  <p>
+                    Em geral, essas abordagens tomam como entrada uma descrição
+                    da arquitetura que foi planejada e a implementação real e
+                    comparam as duas para verificar se a implementação está de
+                    acordo com o que foi planejado - como mostrado na imagem
+                    abaixo.
+                  </p>
+
+                  <img src="./images/arch.check.png" class="center" />
+
+                  <p>
+                    De forma geral, é assim que a checagem de conformidade
+                    arquitetural funciona. Vale ressaltar que a Arquitetura
+                    Planejada é especificada em uma linguagem de domínio,
+                    permitindo que esse processo seja totalmente automatizado.
+                  </p>
                 </div>
               </div>
             </div>
