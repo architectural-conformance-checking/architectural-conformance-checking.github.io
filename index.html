@@ -93,98 +93,100 @@
                   <span class="heading-meta"
                     >Checagem de Conformidade Arquitetural</span
                   >
-                  <h3>Projetando Arquitetura de Software</h3>
+                  <h3>Designing Software Architecture</h3>
                   <p>
-                    Descrever o termo arquitetura de software realmente é uma
-                    tarefa difícil. Podemos encontrar várias definições que
-                    falam de componentes arquiteturais, relacionamentos,
-                    definições organizacionais, distribuição de sistemas e
-                    várias outras coisas que falam de como organizar o sistema
-                    para manter um alto nível de manutenibilidade.
+                    Describing the term software architecture is really a
+                    difficult task. We can find several definitions that talk
+                    about architectural components, relationships, definitions
+                    of organization , distrivuted systems and various other
+                    things that talk about how to organize the system to
+                    maintain a high level of maintainability.
                   </p>
 
                   <p>
-                    No início do desenvolvimento de um sistema, em geral, há uma
-                    etapa de especificação da arquitetura a fim de estabelecer
-                    os principais componentes, as suas interações e como eles
-                    irão funcionar em conjunto para atender os requisitos e
-                    respeitar certas restrições.
+                    At the beginning of the development of a system, in general,
+                    there is an architecture specification step in order to
+                    establish the main components, their interactions and how
+                    they will work together to meet the requirements and respect
+                    certain constraints.
                   </p>
 
                   <p>
-                    Esses componentes que compoẽm a arquitetura podem ser
-                    camadas internas que foram projetadas com o objetivo de
-                    organizar o código e manter a manutenibilidade ao longo do
-                    tempo. Por exemplo, imagine um sistema web para agendamento
-                    de consultas médicas e que, internamente, foi organizado
-                    utilizando camadas. Uma camada de apresentação (Controllers)
-                    responsável por controlar o fluxo de requisições, uma camada
-                    de serviço (Services) responsável por executar a lógica de
-                    negócio e uma camada chamada Repositories responsável por
-                    fazer acesso a dados. As camadas desse sistema podem ser
-                    visualizadas na figura abaixo.
+                    These components that make up the architecture can be
+                    internal layers that were designed with the aim of
+                    organizing the code and maintaining maintainability over
+                    time. For example, imagine a web system for scheduling
+                    medical appointments and that, internally, was organized
+                    using layers. A presentation layer (Controllers) responsible
+                    for controlling the flow of requests, a service layer
+                    (Services) responsible for executing the business logic and
+                    a layer called Repositories responsible for accessing data.
+                    The layers of this system can be seen in the figure below.
                   </p>
 
                   <img src="./images/arch.ties.png" class="center" />
+                  <br />
 
                   <p>
-                    Perceba que até aqui, apenas camadas e suas
-                    responsabilidades foram projetadas. O próximo passo é
-                    projetar as interações entre essas camadas. No caso do
-                    sistema de agendamento de consultas, as camadas superiores
-                    fazem chamadas para as camadas inferiores. Isso é, a camada
-                    de Controllers faz chamadas para a camada de Services e essa
-                    faz chamadas para a camadas de Repositories. Note que essas
-                    dependências são representadas pelas setas entre as camadas
-                    na imagem a seguir.
+                    Note that so far, only layers and their responsibilities
+                    have been designed. The next step is to design the
+                    interactions between these layers. In the case of the
+                    appointment scheduling system, the upper layers make calls
+                    to the lower layers. That is, the Controllers layer makes
+                    calls to the Services layer and the Services layer makes
+                    calls to the Repositories layer. Note that these
+                    dependencies are represented by the arrows between the
+                    layers in the following image.
                   </p>
 
                   <img src="./images/arch.dependencies.png" class="center" />
+                  <br />
 
                   <p>
-                    Como dito anteriormente, projetar arquitetura diz a respeito
-                    de estabelecer componentes arquiteturais e como eles
-                    interagem a fim de atender requisitos e respeitar
-                    restrições. Essas restrições são, por exemplo, dizer que a
-                    camadas de controllers NÃO pode fazer chamadas diretas para
-                    a camadas de Repositories, bem como a camadas de Services
-                    não pode fazer chamadas para a camadas de Controllers. Veja
-                    como isso pode acontecer na Imagem abaixo.
+                    As stated earlier, designing architecture is about
+                    establishing architectural components and how they interact
+                    in order to meet requirements and respect constraints. These
+                    restrictions are, for example, saying that the controllers
+                    layer CANNOT make direct calls to the Repositories layer, as
+                    well as the Services layer cannot make calls to the
+                    Controllers layer. See how this can happen in the image
+                    below.
                   </p>
 
                   <img src="./images/arch.request.png" class="center" />
+                  <br />
 
                   <p>
-                    Caso essas chamadas aconteçam, (as chamadas que não deveriam
-                    acontecer) elas se caracterizam como Desvios Arquiteturais
-                    uma vez que a implementação se desvia da arquitetura que foi
-                    planejada inicialmente.
+                    If these calls happen, (the calls that should not happen)
+                    they are characterized as Architectural Deviations since the
+                    implementation deviates from the architecture that was
+                    initially planned.
                   </p>
 
-                  <h3>Como Identificar Desvio Arquiteturais</h3>
+                  <h3>How to Identify Architectural Desviations?</h3>
 
                   <p>
-                    Esses desvios arquiteturais acabam degradando o sistema com
-                    o passar do tempo. Dessa forma, precisamos de alguma
-                    abordagem que consiga comparar a arquitetura planejada com a
-                    implementação e revelar esses desvios arquitetônicos.
+                    These architectural deviations end up degrading the system
+                    over time. Therefore, we need some approach that can compare
+                    the planned architecture with the implementation and reveal
+                    these architectural deviations.
                   </p>
 
                   <p>
-                    Em geral, essas abordagens tomam como entrada uma descrição
-                    da arquitetura que foi planejada e a implementação real e
-                    comparam as duas para verificar se a implementação está de
-                    acordo com o que foi planejado - como mostrado na imagem
-                    abaixo.
+                    In general, these approaches take as input a description of
+                    the architecture that was planned and the actual
+                    implementation and compare the two to verify that the
+                    implementation is as planned - as shown in the image below.
                   </p>
 
                   <img src="./images/arch.check.png" class="center" />
+                  <br />
 
                   <p>
-                    De forma geral, é assim que a checagem de conformidade
-                    arquitetural funciona. Vale ressaltar que a Arquitetura
-                    Planejada é especificada em uma linguagem de domínio,
-                    permitindo que esse processo seja totalmente automatizado.
+                    Generally speaking, this is how architectural conformance
+                    checking works. It is worth mentioning that the Planned
+                    Architecture is specified in a domain language, allowing
+                    this process to be fully automated.
                   </p>
                 </div>
               </div>
